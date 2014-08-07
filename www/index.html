@@ -23,40 +23,40 @@
   </head>
   <body data-ng-controller="VideosController">
 
-        <ion-header-bar align-title="center" class="bar bar-header bar-positive">
-
-            <form id="search" data-ng-submit="search();hideResult(false)" class="">
-              <label class="item-input-wrapper">
-                <i class="icon ion-ios7-search placeholder-icon"></i>
-                <input id="query" name="q" type="search" placeholder="Search for a YouTube video" data-ng-model="query">
-              </label>
-            </form>
-            <h1 id="current" class="title"><span data-ng-show="youtube.videoTitle">Now playing:</span>{{ youtube.videoTitle }}</h1>
-        </ion-header-bar>
+    <ion-header-bar align-title="center" class="bar bar-header bar-positive">
+      <form id="search" data-ng-submit="search();hideResult(false)" class="">
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios7-search placeholder-icon"></i>
+          <input id="query" name="q" type="search" placeholder="Search for a YouTube video" data-ng-model="query" data-ng-click="hideResult(false)">
+        </label>
+      </form>
+      <h1 id="current" class="title"><span data-ng-show="youtube.videoTitle">Now playing:</span>{{ youtube.videoTitle }}</h1>
+    </ion-header-bar>
 
         <ion-content>
-          
+  
           <div id="player" class=" ">
             <div id="placeholder"></div>
               <div id="playlist " >
-
-                <div id="results" data-ng-hide="result" class="">
-                  <div class="list video repeated-item" data-ng-repeat="video in results">
-                      <a class="item item-thumbnail-left item-button-right" href="#" data-ng-click="showControl = true">
-                        <img class="video-image" data-ng-src="{{ video.thumbnail }}">
-                        <h2>{{ video.title }}</h2>
-                        <p>{{ video.description }}</p>
-                        <div class=" ">
-                          <button class="button button-small" data-ng-click="launch(video.id, video.title);hideResult(true)" ng-show="showControl">
-                            <i class="icon ion-chevron-right"></i>
-                          </button>
-                          <button class="button button-small" data-ng-click="queue(video.id, video.title)" ng-show="showControl">
-                            <i class="icon ion-plus-round"></i>
-                          </button>
-                        </div>
-                      </a>
-                  </div>
+                  
+                <div ng-controller="VideosController" id="result" data-ng-hide="result"> 
+                  <ion-list>
+                  <ion-item ng-repeat="video in results" class="item-thumbnail-left">
+                    <img ng-src="{{ video.thumbnail }}">
+                    <h2>{{video.title}}</h2>
+                    <p>{{video.description}}</p>
+                    <ion-option-button class="button-positive" ng-click="launch(video.id, video.title);hideResult(true)"> 
+                      <i class="icon ion-chevron-right"></i>
+                    </ion-option-button>
+                    <ion-option-button class="button-info" ng-click="queue(video.id, video.title)">
+                      <i class="icon ion-plus-round"></i>
+                    </ion-option-button>
+                  </ion-item>
+                  </ion-list>
                 </div>
+
+
+
 
                 <ul id="upcoming" data-ng-show="playlist" class="list">
                   <!--la playlist en cours  -->
