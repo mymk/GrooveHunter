@@ -244,7 +244,7 @@ app.controller('VideosController', function ($scope, $http, $log, VideosService)
       $scope.playlist = state;
     }
 
-    $scope.searchResult = function (state) {
+    $scope.hideResult = function (state) {
       $scope.result = state;
     }
 });

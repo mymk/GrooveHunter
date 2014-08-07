@@ -25,7 +25,7 @@
 
         <ion-header-bar align-title="center" class="bar bar-header bar-positive">
 
-            <form id="search" data-ng-submit="search();searchResult(false)" class="">
+            <form id="search" data-ng-submit="search();hideResult(false)" class="">
               <label class="item-input-wrapper">
                 <i class="icon ion-ios7-search placeholder-icon"></i>
                 <input id="query" name="q" type="search" placeholder="Search for a YouTube video" data-ng-model="query">
@@ -35,27 +35,28 @@
         </ion-header-bar>
 
         <ion-content>
-          <div id="results" data-ng-hide="result" class="">
-            <div class="list video repeated-item" data-ng-repeat="video in results">
-                <a class="item item-thumbnail-left item-button-right" href="#" data-ng-click="showControl = true">
-                  <img class="video-image" data-ng-src="{{ video.thumbnail }}">
-                  <h2>{{ video.title }}</h2>
-                  <p>{{ video.description }}</p>
-                  <div class=" ">
-                    <button class="button button-small" data-ng-click="launch(video.id, video.title);searchResult(true)" ng-show="showControl">
-                      <i class="icon ion-chevron-right"></i>
-                    </button>
-                    <button class="button button-small" data-ng-click="queue(video.id, video.title)" ng-show="showControl">
-                      <i class="icon ion-plus-round"></i>
-                    </button>
-                  </div>
-                </a>
-            </div>
-          </div>
-
+          
           <div id="player" class=" ">
             <div id="placeholder"></div>
               <div id="playlist " >
+
+                <div id="results" data-ng-hide="result" class="">
+                  <div class="list video repeated-item" data-ng-repeat="video in results">
+                      <a class="item item-thumbnail-left item-button-right" href="#" data-ng-click="showControl = true">
+                        <img class="video-image" data-ng-src="{{ video.thumbnail }}">
+                        <h2>{{ video.title }}</h2>
+                        <p>{{ video.description }}</p>
+                        <div class=" ">
+                          <button class="button button-small" data-ng-click="launch(video.id, video.title);hideResult(true)" ng-show="showControl">
+                            <i class="icon ion-chevron-right"></i>
+                          </button>
+                          <button class="button button-small" data-ng-click="queue(video.id, video.title)" ng-show="showControl">
+                            <i class="icon ion-plus-round"></i>
+                          </button>
+                        </div>
+                      </a>
+                  </div>
+                </div>
 
                 <ul id="upcoming" data-ng-show="playlist" class="list">
                   <!--la playlist en cours  -->
@@ -110,10 +111,10 @@
       <button class="button button-clear"><i class="ion-chevron-left"></i></button>
       <button class="button button-clear"><i class="ion-chevron-right"></i></button>
       <div class="title">
-        <button class="button button-clear" ng-class="{on:playlist}" data-ng-click="tabulate(true)"><i class="ion-navicon"></i></button>
+        <button class="button button-clear" ng-class="{on:playlist}" data-ng-click="tabulate(true);hideResult(true)"><i class="ion-navicon"></i></button>
       </div>
       
-      <button class="button button-clear"  ng-class="{on:!playlist}" data-ng-click="tabulate(false)">historique</button>
+      <button class="button button-clear"  ng-class="{on:!playlist}" data-ng-click="tabulate(false);hideResult(true)">historique</button>
     </div>
 
   </body>
