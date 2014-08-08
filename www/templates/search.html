@@ -1,0 +1,28 @@
+<ion-view title="Search" hide-back-button="false">
+  <ion-content has-header="true" has-tabs="true" padding="true">
+  <form id="search" data-ng-submit="search()" class="">
+        <label class="item-input-wrapper">
+          <i class="icon ion-ios7-search placeholder-icon"></i>
+          <input id="query" name="q" type="search" placeholder="Search for a YouTube video" data-ng-model="query" data-ng-click="">
+        </label>
+      </form>
+    <div id="result" > 
+      <ion-list>
+        <ion-item ng-repeat="video in results" class="item item-thumbnail-left">
+          <img data-ng-src="{{ video.thumbnail }}">
+            <h2>{{video.title}}</h2>
+            <p>{{video.description}}</p>
+            <ion-option-button class="button-positive" ng-click="queue(video.id, video.title)">
+              <i class="icon ion-plus-round"></i>
+            </ion-option-button>
+            <ion-option-button class="button-positive" ng-click="launch(video.id, video.title);hideResult(true)"> 
+              <i class="icon ion-chevron-right"></i>
+            </ion-option-button>
+          </ion-item>
+        </ion-list>
+      </div>
+
+  </ion-content>
+<div ng-include src="'templates/footer.html'"></div>
+  
+</ion-view>

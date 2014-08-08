@@ -2,3 +2,7 @@
 .button.on {
 	background-color: 	green
 }
+.item-options .icon {
+	line-height: 100px;
+	vertical-align: middle;
+}

@@ -1,0 +1,31 @@
+<div class="bar bar-footer" ng-controler="VideosController">
+        <!-- informations + controles -->
+      <button class="button button-positive" ng-show="youtube.state == 'paused'" data-ng-click="youtube.player.playVideo()">
+        <i class="fa fa-pause"></i>
+      </button>
+      <button class="button button-positive" ng-show="youtube.state == 'ended'" data-ng-click="youtube.player.playVideo()">
+        <i class="fa fa-pause"></i>
+      </button>
+      <button class="button button-positive" ng-show="youtube.state == 'playing'" data-ng-click="youtube.player.pauseVideo()">
+          <i class="fa fa-pause"></i>
+      </button>
+
+      <button class="button button-positive" ng-show="youtube.state == 'cued'" data-ng-click="youtube.player.playVideo()">
+          <i class="fa fa-play"></i>
+      </button>
+
+      <button class="button button-positive">
+          <i class="fa fa-step-backward"></i>
+      </button>
+      <button class="button button-positive">
+          <i class="fa fa-step-forward"></i>
+      </button>
+
+        <!-- pages -->
+      <button class="button button-positive" ui-sref="historique">
+          <i class="fa fa-history"></i>
+      </button>
+      <button class="button button-positive" ui-sref="home_landing">
+          <i class="ion-navicon"></i>
+      </button>
+</div>
