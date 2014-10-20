@@ -24,13 +24,6 @@ angular.module('starter', ['ionic', 'firebase', 'ngAnimate', 'ngCookies'])
 		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	})
 
-	.config(['$httpProvider', function($httpProvider) {
-  		$httpProvider.defaults.withCredentials = true;
-	}])
-
-	.run(['$http', '$cookies', function($http, $cookies) {
-	  $http.defaults.headers.post['X-CSRFToken'] = $cookies.csrftoken;
-	}])
 
 	.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
