@@ -1,0 +1,7 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/Users/Marchal/Documents/GitHub/GrooveHunter/plugins/org.apache.cordova.file/www/blackberry10/FileSystem.js",
+        "C:/Users/Marchal/Documents/GitHub/GrooveHunter/platforms/android/assets/www/plugins/org.apache.cordova.file/www/FileReader.js",
+        "C:/Users/Marchal/Documents/GitHub/GrooveHunter/www/lib/angular/angular.js"
+    ]
+}

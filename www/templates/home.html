@@ -1,23 +1,20 @@
-<ion-view title="{{ youtube.videoTitle }}" hide-back-button="true">
-  <ion-content>
-    <ion-list id="upcoming" data-ng-show="playlist" class="list" show-reorder="shouldShowReorder">
+<ion-view title="{{ youtube.videoTitle }} " hide-back-button="true">
+  <ion-content> 
+    <ion-list id="upcoming" data-ng-show="playlist" class="list reveal-animation" show-reorder="shouldShowReorder">
       <!--la playlist en cours  -->
       <ion-item data-ng-repeat="video in upcoming" class="item item-thumbnail-left">
         <img data-ng-src="{{ video.thumbnail }}">
         <h2>{{ video.title }}</h2>
-        <p>{{ video.description }}</p>
+        <p>{{ video.description}}</p>
         <ion-option-button class="button-assertive" ng-click="delete('upcoming', video.id)">
           <i class="icon ion-minus"></i>
         </ion-option-button>
-        <ion-option-button class="button-positive" ng-click="launch(video.id, video.title)">
+        <ion-option-button class="button-positive" ng-click="launch(video.id, video.title, video.description, video.thumbnail, video.author)">
           <i class="icon ion-chevron-right"></i>
         </ion-option-button>
 		<ion-reorder-button class="ion-navicon" on-reorder="reorderItem(item, $fromIndex, $toIndex)">
         </ion-reorder-button>
       </ion-item>
     </ion-list>
-
   </ion-content>
-    
-  
 </ion-view>

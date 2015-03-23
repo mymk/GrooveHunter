@@ -8,11 +8,11 @@
       </form>
     <div id="result" > 
       <ion-list>
-        <ion-item ng-repeat="video in results" class="item item-thumbnail-left">
+        <ion-item ng-repeat="video in results" class="item item-thumbnail-left reveal-animation focus-animation">
           <img data-ng-src="{{ video.thumbnail }}">
             <h2>{{video.title}}</h2>
             <p>{{video.description}}</p>
-            <ion-option-button class="button-positive" ng-click="queue(video.id, video.title)">
+            <ion-option-button class="button-positive" ng-click="queue(video.id, video.title,video.description,video.thumbnail,video.author)">
               <i class="icon ion-plus-round"></i>
             </ion-option-button>
             <ion-option-button class="button-positive" ng-click="launch(video.id, video.title)"> 
@@ -21,6 +21,5 @@
           </ion-item>
         </ion-list>
       </div>
-
   </ion-content>
 </ion-view>
