@@ -276,6 +276,7 @@ angular.module('starter', ['ionic', 'firebase', 'ngAnimate', 'ngCookies'])
       }
     });
   };
+	
 
   this.loadPlayer = function () {
     if (youtube.ready && youtube.playerId) {
@@ -293,6 +294,7 @@ angular.module('starter', ['ionic', 'firebase', 'ngAnimate', 'ngCookies'])
     return youtube;
   };
 
+	
   this.listResults = function (data) {
     results.length = 0;
     for (var i = data.items.length - 1; i >= 0; i--) {
@@ -376,8 +378,10 @@ angular.module('starter', ['ionic', 'firebase', 'ngAnimate', 'ngCookies'])
       VideosService.launchPlayer(id, title);
       VideosService.archiveVideo(id, title,description,thumbnail,author);
       VideosService.deleteVideo($scope.upcoming, id);
+		
       $log.info('Launched id:' + id + ' and title:' + title);
     };
+	
 	
 	$scope.next = function () {
 		VideosService.launchPlayer($scope.upcoming[0].id, $scope.upcoming[0].title);
@@ -392,6 +396,8 @@ angular.module('starter', ['ionic', 'firebase', 'ngAnimate', 'ngCookies'])
 		VideosService.deleteVideo($scope.history, $scope.history[0].id);
 		$log.info('Launched id:' + $scope.upcoming[0].id + ' and title:' + $scope.upcoming[0].title);
     };
+	
+	
 
     $scope.queue = function (id, title,description,thumbnail,author) {
       VideosService.queueVideo(id, title,description,thumbnail,author);
@@ -414,7 +420,7 @@ angular.module('starter', ['ionic', 'firebase', 'ngAnimate', 'ngCookies'])
         params: {
           key: 'AIzaSyB3UINspsc3X1K68olG8FcFLG-bDn8koG4',
           type: 'video',
-          maxResults: '8',
+          maxResults: '25',
           part: 'id,snippet',
           fields: 'items/id,items/snippet/title,items/snippet/description,items/snippet/thumbnails/medium,items/snippet/channelTitle',
           q: this.query
